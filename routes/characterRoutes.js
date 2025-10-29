@@ -5,6 +5,12 @@ const characterController = require('../controllers/characterController');
 // GET /characters - Hent alle karakterer
 router.get('/', characterController.getAllCharacters);
 
+// downloader all karaktere
+router.get('/download/all', characterController.downloadAllCharacters);
+
+// GET download en karakter
+router.get('/download/:id', characterController.downloadCharacter);
+
 // POST /characters - Tilføj en karakter
 router.post('/', characterController.createCharacter);
 

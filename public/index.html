@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Star Wars Characters</title>
+</head>
+<body>
+<h1>Star Wars Characters</h1>
+
+<h2>Add Character</h2>
+<input type="text" id="name" placeholder="Name">
+<select id="role">
+    <option value="Jedi">Jedi</option>
+    <option value="Sith">Sith</option>
+    <option value="Rebel">Rebel</option>
+    <option value="Smuggler">Smuggler</option>
+</select>
+<input type="text" id="homeworld" placeholder="Homeworld">
+<button onclick="addCharacter()">Add</button>
+
+<h2>Characters</h2>
+<button onclick="loadCharacters()">Refresh</button>
+<div id="characters"></div>
+
+<br>
+<button onclick="downloadAll()">Download All</button>
+
+<script>
+    function loadCharacters() {
+        fetch('/api/characters')
+            .then(res => res.json())
+            .then(data => {
+                let html = '';
+                data.forEach(char => {
+                    html += '<div>';
+                    html += '<strong>' + char.name + '</strong> - ';
+                    html += char.role + ' from ' + char.homeworld + ' ';
+                    html += '<button onclick="downloadCharacter(' + char.id + ')">Download</button> ';
+                    html += '<button onclick="deleteCharacter(' + char.id + ')">Delete</button>';
+                    html += '</div>';
+                });
+                document.getElementById('characters').innerHTML = html;
+            });
+    }
+
+    function addCharacter() {
+        const name = document.getElementById('name').value;
+        const role = document.getElementById('role').value;
+        const homeworld = document.getElementById('homeworld').value;
+
+        fetch('/api/characters', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name, role, homeworld})
+        })
+            .then(res => res.json())
+            .then(() => {
+                document.getElementById('name').value = '';
+                document.getElementById('homeworld').value = '';
+                loadCharacters();
+            });
+    }
+
+    function downloadCharacter(id) {
+        window.location.href = '/api/characters/download/' + id;
+    }
+
+    function downloadAll() {
+        window.location.href = '/api/characters/downloadall';
+    }
+
+    function deleteCharacter(id) {
+        fetch('/api/characters/delete/' + id, {method: 'DELETE'})
+            .then(() => loadCharacters());
+    }
+
+    loadCharacters();
+</script>
+</body>
+</html>

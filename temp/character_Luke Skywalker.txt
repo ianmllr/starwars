@@ -1,0 +1,6 @@
+Karakter:
+=====================
+ID: 1
+Name: Luke Skywalker
+Role: Jedi
+Homeworld: Tatooine

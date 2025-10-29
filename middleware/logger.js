@@ -3,7 +3,7 @@ const path = require('path');
 
 const logFile = path.join(__dirname, '..', 'logs', 'server.log');
 
-module.exports = (req, res, next) => {
+const logger = (req, res, next) => {
     const start = Date.now();
 
     res.on('finish', () => {
@@ -18,3 +18,13 @@ module.exports = (req, res, next) => {
     next();
 };
 
+const logAction = (action, details) => {
+    const timestamp = new Date().toISOString();
+    const logMessage = `${timestamp} - ${action}: ${details}\n`;
+
+    fs.appendFile(logFile, logMessage, (err) => {
+        if (err) console.error('Logging error:', err);
+    });
+};
+
+module.exports = { logger, logAction };

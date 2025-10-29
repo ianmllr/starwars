@@ -18,7 +18,7 @@ process.on('uncaughtException', (err) => {
 
 
 // middleware
-app.use(logger); // brug logger middleware
+app.use(logger.logger); // brug logger middleware
 app.use(express.json());// parse JSON body
 app.use(express.static(path.join(__dirname, 'public'))); // statiske filer
 

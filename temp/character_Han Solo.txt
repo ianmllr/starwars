@@ -1,0 +1,6 @@
+Karakter:
+=====================
+ID: 4
+Name: Han Solo
+Role: Smuggler
+Homeworld: Ikke Jorden

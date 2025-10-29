@@ -1,12 +1,6 @@
 {
   "characters": [
     {
-      "id": 1,
-      "name": "Luke Skywalker",
-      "role": "Jedi",
-      "homeworld": "Tatooine"
-    },
-    {
       "id": 2,
       "name": "Darth Vader",
       "role": "Sith",
@@ -29,7 +23,24 @@
       "name": "Yoda",
       "role": "Jedi",
       "homeworld": "Ikke Jorden"
+    },
+    {
+      "id": 7,
+      "name": "r2d22222222",
+      "role": "Sith",
+      "homeworld": "mars"
+    },
+    {
+      "id": 8,
+      "name": "r2",
+      "role": "Rebel",
+      "homeworld": "En fabrik et sted"
+    },
+    {
+      "id": 9,
+      "name": "r3",
+      "role": "Rebel",
+      "homeworld": "En fabrik et sted"
     }
-  ],
-  "nextId": 6
+  ]
 }
