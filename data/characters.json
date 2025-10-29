@@ -1,0 +1,35 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Luke Skywalker",
+      "role": "Jedi",
+      "homeworld": "Tatooine"
+    },
+    {
+      "id": 2,
+      "name": "Darth Vader",
+      "role": "Sith",
+      "homeworld": "Ikke Jorden"
+    },
+    {
+      "id": 3,
+      "name": "Leia Orgasma",
+      "role": "Rebel",
+      "homeworld": "Tatooine"
+    },
+    {
+      "id": 4,
+      "name": "Han Solo",
+      "role": "Smuggler",
+      "homeworld": "Ikke Jorden"
+    },
+    {
+      "id": 5,
+      "name": "Yoda",
+      "role": "Jedi",
+      "homeworld": "Ikke Jorden"
+    }
+  ],
+  "nextId": 6
+}
